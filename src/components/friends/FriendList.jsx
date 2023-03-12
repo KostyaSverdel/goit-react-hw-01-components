@@ -1,11 +1,11 @@
-import React from "react";
-import PropTypes from "prop-types";
-import css from '../friends/FriendList.module.css'
+import React from 'react';
+import PropTypes from 'prop-types';
+import css from '../friends/FriendList.module.css';
 
 function FriendList({ friends }) {
   return (
     <ul className={css.friendList}>
-      {friends.map((friend) => (
+      {friends.map(friend => (
         <FriendListItem key={friend.id} {...friend} />
       ))}
     </ul>
@@ -24,7 +24,7 @@ FriendList.propTypes = {
 };
 
 function FriendListItem({ avatar, name, isOnline }) {
-  const statusClass = isOnline ? css["status--online"] : css["status--offline"];
+  const statusClass = isOnline ? css['status--online'] : css['status--offline'];
 
   return (
     <li className={css.itemsFriends}>
@@ -34,7 +34,6 @@ function FriendListItem({ avatar, name, isOnline }) {
     </li>
   );
 }
-
 
 FriendListItem.propTypes = {
   avatar: PropTypes.string.isRequired,

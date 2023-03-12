@@ -1,26 +1,18 @@
-import React from "react";
-import css from "../profile/Profile.module.css"
+import React from 'react';
+import css from '../profile/Profile.module.css';
 import PropTypes from 'prop-types';
 
-function Profile({ 
-  username, 
-  tag, 
-  location, 
-  avatar, 
-  stats: { 
-    followers, 
-    views, 
-    likes 
-  } 
+function Profile({
+  username,
+  tag,
+  location,
+  avatar,
+  stats: { followers, views, likes },
 }) {
   return (
     <div className={css.profile}>
       <div className={css.description}>
-        <img
-          src={avatar}
-          alt="User avatar"
-          className={css.avatar}
-        />
+        <img src={avatar} alt="User avatar" className={css.avatar} />
         <p className={css.name}>{username}</p>
         <p className={css.tag}>{tag}</p>
         <p className={css.location}>{location}</p>
@@ -52,7 +44,7 @@ Profile.propTypes = {
   stats: PropTypes.shape({
     followers: PropTypes.number.isRequired,
     views: PropTypes.number.isRequired,
-    likes: PropTypes.number.isRequired
-  }).isRequired
+    likes: PropTypes.number.isRequired,
+  }).isRequired,
 };
 export default Profile;
