@@ -24,17 +24,17 @@ FriendList.propTypes = {
 };
 
 function FriendListItem({ avatar, name, isOnline }) {
+  const statusClass = isOnline ? css["status--online"] : css["status--offline"];
+
   return (
     <li className={css.itemsFriends}>
-      <span
-        className={css.status}
-        style={{ backgroundColor: isOnline ? "green" : "red" }}
-      ></span>
+      <span className={`${css.status} ${statusClass}`}></span>
       <img className="avatar" src={avatar} alt="User avatar" width="48" />
       <p className="name">{name}</p>
     </li>
   );
 }
+
 
 FriendListItem.propTypes = {
   avatar: PropTypes.string.isRequired,
