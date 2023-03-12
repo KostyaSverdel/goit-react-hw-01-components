@@ -1,7 +1,18 @@
 import React from "react";
 import css from "../profile/Profile.module.css"
+import PropTypes from 'prop-types';
 
-function Profile({ username, tag, location, avatar, stats }) {
+function Profile({ 
+  username, 
+  tag, 
+  location, 
+  avatar, 
+  stats: { 
+    followers, 
+    views, 
+    likes 
+  } 
+}) {
   return (
     <div className={css.profile}>
       <div className={css.description}>
@@ -18,19 +29,30 @@ function Profile({ username, tag, location, avatar, stats }) {
       <ul className={css.stats}>
         <li className={css.statstabl}>
           <span className="label">Followers</span>
-          <span className="quantity">{stats.followers}</span>
+          <span className="quantity">{followers}</span>
         </li>
         <li className={css.statstabl}>
           <span className="label">Views</span>
-          <span className="quantity">{stats.views}</span>
+          <span className="quantity">{views}</span>
         </li>
         <li className={css.statstabl}>
           <span className="label">Likes</span>
-          <span className="quantity">{stats.likes}</span>
+          <span className="quantity">{likes}</span>
         </li>
       </ul>
     </div>
   );
 }
 
+Profile.propTypes = {
+  username: PropTypes.string.isRequired,
+  tag: PropTypes.string.isRequired,
+  location: PropTypes.string.isRequired,
+  avatar: PropTypes.string.isRequired,
+  stats: PropTypes.shape({
+    followers: PropTypes.number.isRequired,
+    views: PropTypes.number.isRequired,
+    likes: PropTypes.number.isRequired
+  }).isRequired
+};
 export default Profile;
